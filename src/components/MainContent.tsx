@@ -50,11 +50,6 @@ export default function MainContent({isMobile, selectedTabIndex}: Props) {
 						}}>
 
                         <SessionStatsSection />
-{/* 
-						<Card sx={totalSessionsCardStyle}></Card>
-						<Card sx={statComparisonCardStyle}></Card>
-						<Card sx={statComparisonCardStyle}></Card>
-						<Card sx={statComparisonCardStyle}></Card> */}
 
 					</Grid>
 
