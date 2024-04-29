@@ -12,17 +12,14 @@ export default function RadialStatsCard({title, value, maxValue }: Props) {
 
 const cardStyle = { 
   backgroundColor: 'lavender',
-  width: '100%', 
+  width: '20vw', 
   borderRadius: '20px',
-  border: '2px solid purple',
 }
 
 const cardContentStyle = {
-
     width: '100%', 
     display: 'flex',
-    flex: 1,
-    justifyContent: 'space-apart',
+    justifyContent: 'space-between',
     alignItems: 'center'
 };
 
@@ -34,9 +31,9 @@ const cardContentStyle = {
               <Typography sx={{width: '20%'}} variant="body1" color="text.secondary">{title}</Typography>
               <RadialProgressBar value={value} maxValue={maxValue}/>
 
-              <Box sx={{backgroundColor: 'yellow', display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="h6" component="div">Max {maxValue}</Typography>
-                <Typography variant="h3" component="div" sx={{color: 'mediumslateblue'}}>{value}</Typography>
+              <Box sx={{display: 'flex', flexDirection: 'column' }}>
+                <Typography variant="h6" component="div">MAX {maxValue}</Typography>
+                <Typography variant="h4" component="div" sx={{color: '#6b75ca'}}>{value}</Typography>
               </Box>
 
             </CardContent>

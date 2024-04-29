@@ -1,14 +1,14 @@
 
 import { Grid, Card, CardContent, Typography } from '@mui/material';
+import PercentChangeLabel from './PercentChangeLabel';
 
 interface Props {
   title: string;
   value: string;
-  percentChange: string;
+  percentChange: number;
   cardStyle: React.CSSProperties;
 
 }
-
 
 export default function SessionStatsCard({title, value, percentChange, cardStyle}: Props) {
 
@@ -16,9 +16,9 @@ export default function SessionStatsCard({title, value, percentChange, cardStyle
         <Grid item key={title}>
           <Card sx={cardStyle}>
             <CardContent>
-              <Typography variant="h6" component="div">{value}</Typography>
-              <Typography variant="body2" color="text.secondary">{title}</Typography>
-              <Typography variant="h4" component="div">{percentChange}</Typography>
+              <Typography variant="h5" fontWeight={'bold'} component="div">{value}</Typography>
+              <Typography variant="body2" fontSize={10} color="text.secondary">{title.toUpperCase()}</Typography>
+              <PercentChangeLabel percentChange={percentChange} />
             </CardContent>
           </Card>
         </Grid>

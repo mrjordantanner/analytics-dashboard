@@ -16,9 +16,9 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
   };
 
 
-    const navBarDesktop = {
+      const navBarDesktop = {
+        backgroundColor: 'white',
         display: 'flex',
-        backgroundColor: 'yellow',
         height: '100%',
         width: '60px',
         left: 0,
@@ -27,7 +27,7 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
       };
     
       const navBarMobile = {
-        backgroundColor: 'yellow',
+        backgroundColor: 'white',
         display: 'flex',
         position: 'fixed',
         top: 0,
@@ -36,18 +36,19 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
       };
 
       const tabsContainerStyle = {
-        backgroundColor: 'lightgrey',
-        //display: 'flex',
+        //backgroundColor: 'lightgrey',
         left: 0,
         justifyContent: 'space-evenly',
         alignItems: 'center'
       }
 
       const tabStyle = {
-        backgroundColor: 'tomato',
-        border: '1px solid red',
+        //backgroundColor: 'tomato',
+        border: '1px solid lightgrey',
+        borderRadius: '10px',
         flex: 1,
-        minWidth: '30px'
+        minWidth: '30px',
+        margin: '5px'
       }
 
     return(
@@ -77,7 +78,12 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
               onChange={handleChange} 
               orientation="vertical"
               aria-label="navigation tabs">
-              {/* Tabs content */}
+
+                <Tab label="1" sx={tabStyle}/>
+                <Tab label="2" sx={tabStyle}/>
+                <Tab label="3" sx={tabStyle}/>
+                <Tab label="4" sx={tabStyle}/>
+
             </Tabs>
           
             }

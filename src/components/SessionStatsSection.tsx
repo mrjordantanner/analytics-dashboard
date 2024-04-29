@@ -18,7 +18,7 @@ export default function SessionStatsSection({isMobile}: Props) {
   }
     
   const totalSessionsCardStyle = {
-    backgroundColor: 'mediumslateblue', 
+    backgroundColor: '#6b75ca', 
     color: 'white',
     width: '17vw', 
     height: '25vh', 
@@ -40,25 +40,25 @@ export default function SessionStatsSection({isMobile}: Props) {
             cardStyle={totalSessionsCardStyle}
             title={'Total Sessions'} 
             value={'2100'} 
-            percentChange={''} />
+            percentChange={14} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Total Visitors'} 
             value={'1228'} 
-            percentChange={'-3%'} />
+            percentChange={-3} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Time Spent, Hr'}
             value={'6.92'} 
-            percentChange={'1%'} />
+            percentChange={1} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Avg requests received'}
             value={'2.3'} 
-            percentChange={'+21%'} />
+            percentChange={21} />
 
     </Grid>
   );

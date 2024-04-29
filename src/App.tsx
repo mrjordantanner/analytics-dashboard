@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import MainContent from './components/MainContent';
 import AsideContent from './components/AsideContent';
 import Navbar from './components/Navbar';
-import OverlayImage from './components/OverlayImage';
+import MockupOverlay from './components/MockupOverlay';
 //import { testData } from './data/TestData.js';
 
 interface GraphDataProps {
@@ -21,12 +21,12 @@ interface DataSet {
 export type { GraphDataProps };
 
 const testData = {
-  labels: ['1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14', '15'],
+  labels: ['15', '16', '17', '18', '19', '20', '21','22', '23', '24', '25', '26', '27', '28', '29', '30'],
   datasets: [
       {
       id: 1,
       label: 'TestData1',
-      data: [5, 6, 70, 65, 12, 15, 56, 79, 90, 380, 260, 270, 180, 90, 50],
+      data: [300, 315, 0, 0, 120, 130, 150, 180, 120, 220, 210, 280, 275, 315, 280, 80, 90],
       },
   ]
 }
@@ -69,7 +69,7 @@ export default function App() {
 
 	return (
   <>
-    <OverlayImage isMobile={isMobile} />
+    <MockupOverlay isMobile={isMobile} />
     <Grid container sx={pageContainerStyle}>
 
         <Navbar 
@@ -79,7 +79,7 @@ export default function App() {
           />
 
         <MainContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} graphData={testData} />
-        <AsideContent isMobile={isMobile} graphData={testData}/>
+        <AsideContent isMobile={isMobile} />
 
     </Grid>
 

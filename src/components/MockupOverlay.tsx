@@ -5,10 +5,14 @@ interface Props{
 }
 
 // Displays semi-transparent overlay of design mockup for reference during development
-export default function OverlayImage({ isMobile }: Props) {
+export default function MockupOverlay({ isMobile }: Props) {
   return (
     <div
       style={{
+
+        // Adjust opacity to view mockup
+        opacity: 0,  
+
         position: 'fixed',
         top: 0,
         left: 0,
@@ -16,7 +20,6 @@ export default function OverlayImage({ isMobile }: Props) {
         height: '100vh',
         zIndex: 9999,
         pointerEvents: 'none',
-        opacity: 0, 
         display: isMobile ? 'none' : 'flex',
       }}
     >

@@ -12,10 +12,10 @@ export default function PanelWithMenu({isMobile, labelText, children}: Props) {
 
 
   const statsPanelHeaderStyle = {
-    backgroundColor: 'lightseagreen',
-    border: '2px solid blue',
+    //backgroundColor: 'lightseagreen',
+    //border: '2px solid blue',
     display: 'flex',
-    margin: '15px',
+    margin: '0px 15px',
     height: '40px',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -23,10 +23,10 @@ export default function PanelWithMenu({isMobile, labelText, children}: Props) {
   }
 
   const statsPanelStyle = {
-    backgroundColor: 'lightsalmon',
-    border: '2px solid red',
+    //backgroundColor: 'lightsalmon',
+    //border: '2px solid red',
     height: isMobile ? '40%' : '45vh',
-    margin: '15px',
+    margin: '0px 15px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
