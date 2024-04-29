@@ -1,3 +1,4 @@
+import 'devextreme/dist/css/dx.light.css';
 import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 
@@ -6,6 +7,12 @@ import AsideContent from './components/AsideContent';
 import Navbar from './components/Navbar';
 import MockupOverlay from './components/MockupOverlay';
 //import { testData } from './data/TestData.js';
+
+// import Chart, {
+//   ArgumentAxis,
+//   Series,
+//   Legend
+// } from 'devextreme-react/chart'
 
 interface GraphDataProps {
   graphData: Data;
@@ -21,7 +28,7 @@ interface DataSet {
 export type { GraphDataProps };
 
 const testData = {
-  labels: ['15', '16', '17', '18', '19', '20', '21','22', '23', '24', '25', '26', '27', '28', '29', '30'],
+  labels: ['Sun 15', 'Mon 16', 'Tue 17', 'Wed 18', 'Thu 19', 'Fri 20', 'Sat 21', 'Sun 22', 'Mon 23', 'Tue 24', 'Wed Thu 25', 'Fri 26', 'Sat 27', 'Sun 28', 'Mon 29', 'Tue 30'],
   datasets: [
       {
       id: 1,
@@ -61,10 +68,9 @@ export default function App() {
   };
 
   const pageContainerStyle = {
-    backgroundColor: 'lavender',
+    backgroundColor: '#eff2f8',
     height: '100vh',
-    padding: '10px',
-    marginTop: isMobile ? '60px' : '0px'  // Room for top navbar
+    marginTop: isMobile ? '60px' : '0px'
   };
 
 	return (

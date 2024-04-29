@@ -6,8 +6,10 @@ interface Props {
 }
 
 const progressStyle = {
+    //backgroundColor: 'cyan',
     color: '#6b75ca',
-    flex: 1
+    minHeight: '50px',
+    minWidth: '50px'
 }
 
 export default function CircularProgressBar({ value, maxValue }: Props){
@@ -17,9 +19,7 @@ export default function CircularProgressBar({ value, maxValue }: Props){
           sx={progressStyle}
           variant="determinate"
           value={(value / maxValue) * 100}
-          size="100%"
           thickness={4}
-          
         />
       </>
     );

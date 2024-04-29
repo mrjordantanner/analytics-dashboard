@@ -3,33 +3,31 @@ import { Grid, Card, Box, CardContent, Typography } from '@mui/material';
 import RadialProgressBar from './RadialProgressBar';
 
 interface Props{
+  isMobile: boolean;
   title: string;
   value: number;
   maxValue: number;
+  cardStyle: React.CSSProperties;
+  cardContentStyle: React.CSSProperties;
 }
 
-export default function RadialStatsCard({title, value, maxValue }: Props) {
+export default function RadialStatsCard({isMobile, title, value, maxValue, cardStyle, cardContentStyle }: Props) {
 
-const cardStyle = { 
-  backgroundColor: 'lavender',
-  width: '20vw', 
-  borderRadius: '20px',
-}
-
-const cardContentStyle = {
-    width: '100%', 
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-};
 
   return (
-        <Grid item key={title}>
+        <Grid item key={title} xs={12}>
           <Card sx={cardStyle}>
             <CardContent sx={cardContentStyle}>
 
-              <Typography sx={{width: '20%'}} variant="body1" color="text.secondary">{title}</Typography>
-              <RadialProgressBar value={value} maxValue={maxValue}/>
+            <Box sx={{display: 'flex'}}>
+              <Typography sx={{width: '20%'}} variant="body1" color="text.secondary"> 
+                {title}
+              </Typography>
+              </Box>
+
+              <Box sx={{display: 'flex'}}>
+                <RadialProgressBar value={value} maxValue={maxValue}/>
+              </Box>
 
               <Box sx={{display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h6" component="div">MAX {maxValue}</Typography>

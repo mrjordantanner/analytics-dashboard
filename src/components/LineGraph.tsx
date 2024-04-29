@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { Box } from '@mui/material';
 import { GraphDataProps } from '../App';
 
+// This is a Line graph using Chart.js and react-chartjs-2
 
 // TODO consolidate chart/graph components
 export default function LineGraph({graphData}: GraphDataProps) {
@@ -43,7 +44,7 @@ export default function LineGraph({graphData}: GraphDataProps) {
 
 	return (
 		<>
-			<Box sx={{ backgroundColor: 'lavender', width: '100%', height: '100%'}}>
+			<Box sx={{ width: '100%', height: '100%'}}>
 				<Line redraw={true} options={options} data={graphData} />
 			</Box>
 		</>

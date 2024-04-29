@@ -1,6 +1,6 @@
 import 'chart.js/auto';
 import { Radar } from 'react-chartjs-2';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 //import { GraphDataProps } from '../App';
 
 
@@ -37,10 +37,8 @@ export default function RadarChart() {
 				grid: {
 					circular: true,
 					color: 'rgba(0, 0, 0, 0.1)',
-					lineWidth: 1, // Set grid line width
-					drawBorder: false, // Hide the border of the grid area
-					borderDash: [2, 2], // Set border dash pattern
-					step: 10
+					lineWidth: 1,
+					//step: 10
 				},
 				pointLabels: {
 					font: {
@@ -50,7 +48,6 @@ export default function RadarChart() {
 				ticks: {
 					beginAtZero: true, 
 					backdropColor: 'rgba(0, 0, 0, 0)', 
-					
 				},
 			},
 		},
@@ -63,7 +60,7 @@ export default function RadarChart() {
 	
 	return (
 		<>
-			<Box sx={{ backgroundColor: 'lavender', width: '100%', height: '100%'}}>
+			<Box sx={{width: '100%', height: '100%'}}>
 				<Radar redraw={true} options={options} data={testData} />
 			</Box>
 		</>

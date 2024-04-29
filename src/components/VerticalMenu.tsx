@@ -30,9 +30,8 @@ export default function VerticalMenu() {
             open={Boolean(anchorElement)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Option 1</MenuItem>
-            <MenuItem onClick={handleClose}>Option 2</MenuItem>
-            <MenuItem onClick={handleClose}>Option 3</MenuItem>
+            <MenuItem onClick={handleClose}>Polar Graph</MenuItem>
+            <MenuItem onClick={handleClose}>Bar Graph</MenuItem>
           </Menu>
         </div>
       );

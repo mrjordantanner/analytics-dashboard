@@ -28,7 +28,7 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
     
       const navBarMobile = {
         backgroundColor: 'white',
-        display: 'flex',
+        display: 'absolute',
         position: 'fixed',
         top: 0,
         width: '100%',
@@ -65,10 +65,9 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
               orientation="horizontal"
               aria-label="navigation tabs">
 
-                <Tab label="1" sx={tabStyle}/>
-                <Tab label="2" sx={tabStyle}/>
-                <Tab label="3" sx={tabStyle}/>
-                <Tab label="4" sx={tabStyle}/>
+                <Tab label="DATA 1" sx={tabStyle}/>
+                <Tab label="DATA 2" sx={tabStyle}/>
+                <Tab label="DATA 3" sx={tabStyle}/>
 
             </Tabs> : 
               
@@ -82,7 +81,6 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
                 <Tab label="1" sx={tabStyle}/>
                 <Tab label="2" sx={tabStyle}/>
                 <Tab label="3" sx={tabStyle}/>
-                <Tab label="4" sx={tabStyle}/>
 
             </Tabs>
           
