@@ -1,16 +1,14 @@
-import React from 'react';
 import { Box, Grid, Card, CardContent, Typography } from '@mui/material';
-import { SvgIconProps } from '@mui/material/SvgIcon';
 
 interface Props{
   isMobile: boolean;
-  icon?: React.ReactElement<SvgIconProps>;
+  iconPath?: string;
   title: string;
   value: string;
   numberSessions: number;
 }
 
-export default function SessionInsightsCard({isMobile, icon, title, value, numberSessions }: Props) {
+export default function SessionInsightsCard({isMobile, iconPath, title, value, numberSessions }: Props) {
 
 const cardStyle = {
   backgroundColor: '#eff2f8',
@@ -31,9 +29,9 @@ const cardContentStyle = {
           <Card sx={cardStyle}>
             <CardContent sx={cardContentStyle}>
             <Box sx={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
-                <Box>
-                  {icon && icon}
-                </Box>
+              <Box sx={{marginRight: '15px'}}>
+                  <img src={iconPath} alt='icon' style={{width: '25px'}} />
+              </Box>
                 <Box>
                   <Typography variant="body2" color="text.secondary">{title.toUpperCase()}</Typography>
                   <Typography variant="h6" component="div">{value}</Typography>

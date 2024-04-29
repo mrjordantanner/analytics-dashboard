@@ -37,6 +37,7 @@ export default function SessionStatsSection({isMobile}: Props) {
     <Grid item sx={sessionStatsSectionStyle}>
 
         <SessionStatsCard
+        
             cardStyle={totalSessionsCardStyle}
             title={'Total Sessions'} 
             value={'2100'} 

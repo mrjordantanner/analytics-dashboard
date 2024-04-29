@@ -46,7 +46,7 @@ export default function GraphContainer({isMobile, selectedTabIndex, graphData}: 
         {selectedTabIndex === 1 && (
             <Box sx={{
                 width: '100%',
-                height: '100%',
+                height: isMobile ? '50vh': '100%',
             }}>
                 <DxLineGraph />
             </Box>
