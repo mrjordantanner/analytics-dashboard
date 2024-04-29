@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import SessionInsightsCard from './SessionInsightsCard';
 
 const sessionInsightsSectionStyle = {
-  //backgroundColor: 'magenta',
+  backgroundColor: 'magenta',
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
@@ -14,7 +14,7 @@ const sessionInsightsSectionStyle = {
 export default function SessionInsightsSection() {
 
   return (
-    <Grid item direction="row" spacing={3} sx={sessionInsightsSectionStyle}>
+    <Grid item spacing={3} sx={sessionInsightsSectionStyle}>
 
         <SessionInsightsCard 
             title={'Top Platform'} 
@@ -30,6 +30,11 @@ export default function SessionInsightsSection() {
             title={'Top Browser'} 
             value={'Chrome'} 
             numberSessions={2010} />
+
+        <SessionInsightsCard 
+            title={'Top Email'} 
+            value={'Outlook'} 
+            numberSessions={234} />
 
     </Grid>
   );

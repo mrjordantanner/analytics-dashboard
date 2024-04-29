@@ -2,31 +2,47 @@
 import { Grid, Box, Card } from '@mui/material';
 import SessionStatsSection from './SessionStatsSection';
 import SessionInsightsSection from './SessionInsightsSection';
+import LineGraph from './LineGraph';
+//import type { GraphDataProps } from '../App';
 
 interface Props {
     isMobile: boolean;
     selectedTabIndex: number;
+	graphData: Data
 }
 
-export default function MainContent({isMobile, selectedTabIndex}: Props) {
+// TODO consolidate these Props
+interface Data {
+	labels: string[];
+	datasets: DataSet[];
+  }
+  
+  interface DataSet {
+	label: string;
+	data: number[];
+  }
+
+export default function MainContent({isMobile, selectedTabIndex, graphData}: Props) {
 
     const mainContainerStyle = {
-        backgroundColor: 'lightblue',
+        //backgroundColor: 'lightblue',
+		border: '1px solid red',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 
       const contentContainerStyle = {
-        backgroundColor: 'gray',
+        //backgroundColor: 'gray',
+		border: '1px solid lightgrey',
         height: '40%',
         width: '97%',
         margin: '5px',
         display: 'flex',
         justifyContent: 'space-evenly'
     }
-      
+     
     return (
 			<>
 				{/* Main Container */}
@@ -38,29 +54,18 @@ export default function MainContent({isMobile, selectedTabIndex}: Props) {
 					style={{ height: isMobile ? '65%' : '100%' }}>
 
 					{/* Top content container - SESSION STATS */}
-					<Grid
-						item
-                        direction="row"
-                        spacing={3}
-						sx={{
-							flex: '1',
-							flexDirection: 'row',
-							//alignItems: 'ce',
-							...contentContainerStyle,
-						}}>
-
-                        <SessionStatsSection />
-
+					<Grid sx={{flex: '1', flexDirection: 'row', ...contentContainerStyle}}>
+                        	<SessionStatsSection isMobile={isMobile}/>
 					</Grid>
 
 					{/* Middle content container - TAB PANEL toggles Graph and other content */}
-					{}
 					<Grid item sx={{ flex: '2', alignItems: 'center', ...contentContainerStyle }}>
 
+						{/* Content for Tab 1 */}
 						{selectedTabIndex === 0 && (
 							<Box sx={{ backgroundColor: 'mediumslateblue', width: '100%', height: '100%'}}>
-								{/* Content for Tab 1 */}
-								<h3>INTERACTIVE GRAPH</h3>
+								
+								<LineGraph graphData={graphData}/>
 							</Box>
 						)}
 						{selectedTabIndex === 1 && (
@@ -85,9 +90,7 @@ export default function MainContent({isMobile, selectedTabIndex}: Props) {
 					</Grid>
 
 					{/* Bottom content container - INSIGHTS STATS */}
-					<Grid
-						item
-						sx={{ flex: '1', alignItems: 'end', ...contentContainerStyle }}>
+					<Grid item sx={{ flex: '1', alignItems: 'end', ...contentContainerStyle }}>
 						<SessionInsightsSection />
 					</Grid>
 				</Grid>

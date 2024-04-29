@@ -1,9 +1,12 @@
 import { Grid, Card, CardContent, Typography, CardMedia } from '@mui/material';
 import SessionStatsCard from './SessionStatsCard';
 
+interface Props{
+  isMobile: boolean;
+}
 
 
-export default function SessionStatsSection() {
+export default function SessionStatsSection({isMobile}: Props) {
 
   const sessionStatsSectionStyle = {
     //backgroundColor: 'magenta',
@@ -24,15 +27,14 @@ export default function SessionStatsSection() {
 
   const sessionStatsCardStyle = {
     backgroundColor: 'white', 
-    width: '10vw', 
+    width: isMobile ? '100%' : '10vw', 
     height: '60%', 
     top: '0px', 
     borderRadius: '0px 0px 20px 20px', 
   }
 
-
   return (
-    <Grid item direction="row" spacing={3} sx={sessionStatsSectionStyle}>
+    <Grid item sx={sessionStatsSectionStyle}>
 
         <SessionStatsCard
             cardStyle={totalSessionsCardStyle}
@@ -49,13 +51,13 @@ export default function SessionStatsSection() {
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Time Spent, Hr'}
-            value={'1228'} 
+            value={'6.92'} 
             percentChange={'1%'} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Avg requests received'}
-            value={'1228'} 
+            value={'2.3'} 
             percentChange={'+21%'} />
 
     </Grid>

@@ -16,7 +16,7 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
 
     const navBarDesktop = {
         display: 'flex',
-        backgroundColor: 'tomato',
+        backgroundColor: 'yellow',
         height: '100%',
         width: '60px',
         left: 0,
@@ -35,12 +35,17 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
 
       const tabsContainerStyle = {
         backgroundColor: 'lightgrey',
-        display: 'flex',
+        //display: 'flex',
         left: 0,
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
       }
 
       const tabStyle = {
-        backgroundColor: 'red',
+        backgroundColor: 'tomato',
+        border: '1px solid red',
+        flex: 1,
+        minWidth: '30px'
       }
 
     return(
@@ -65,7 +70,8 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
             </Tabs> : 
               
             <Tabs 
-              sx={{ height: '50vh', width: '60px', flexDirection: 'column', ...tabsContainerStyle }} 
+              sx={{ height: '50vh', width: '60px', 
+              flexDirection: 'column', ...tabsContainerStyle }} 
               value={selectedTabIndex} 
               onChange={handleChange} 
               orientation="vertical"

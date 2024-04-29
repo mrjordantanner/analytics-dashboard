@@ -11,20 +11,20 @@ interface Props{
 export default function SessionInsightsCard({title, value, numberSessions}: Props) {
 
 const cardStyle = {
-    minWidth: '250px', 
-    height: '100%', 
-    borderRadius: '20px'
+    height: '150',   //20vw
+    borderRadius: '20px',
+    margin: '1vh'
 };
 
   return (
-        <Grid item key={title}>
+        <Grid item xs={6} md={3}>
           <Card sx={cardStyle}>
-            <CardContent>
+            <CardContent sx={{border: '2px solid cyan'}}>
               <Typography variant="body2" color="text.secondary">{title}</Typography>
               <Typography variant="h6" component="div">{value}</Typography>
 
               <Typography variant="h4" component="div">{numberSessions}</Typography>
-              <Typography variant="body2" color="text.secondary">/ Sessions</Typography>
+              <Typography variant="body2" color="text.secondary">/ sessions</Typography>
             </CardContent>
           </Card>
         </Grid>
