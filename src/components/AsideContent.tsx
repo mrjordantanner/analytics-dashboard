@@ -5,6 +5,7 @@ import RadialStatsCard from './RadialStatsCard';
 import RadarChart from './RadarChart';
 import StatsCard from './StatsCard';
 import HeaderWithMenu from './HeaderWithMenu';
+import DxPolarChart from './DxPolarChart';
 
 interface Props {
     isMobile: boolean;
@@ -42,6 +43,7 @@ export default function AsideContent({isMobile}: Props) {
                 <Panel isMobile={isMobile} >
                     <HeaderWithMenu isMobile={isMobile} labelText={'Views by browser'}/>
                     <RadarChart />
+                    {/* <DxPolarChart /> */}
                 </Panel>
             </Grid>
 

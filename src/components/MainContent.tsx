@@ -1,5 +1,5 @@
 
-import { Grid, Box, Button } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
 import SessionStatsSection from './SessionStatsSection';
 import SessionInsightsSection from './SessionInsightsSection';
 import GraphContainer from './GraphContainer';
@@ -40,7 +40,7 @@ export default function MainContent({isMobile, selectedTabIndex, graphData}: Pro
         display: 'flex',
         width: '97%',
         gap: '10px',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     }
      
     return (
@@ -55,8 +55,8 @@ export default function MainContent({isMobile, selectedTabIndex, graphData}: Pro
 
 				{/* Graph Header - TODO Add time range tabs */}
 				<Grid item sx={{ flex: 2, alignItems: 'center', ...contentContainerStyle, }}>
-					<h3>Sessions overview</h3>
-					<Button sx={{backgroundColor: 'midnightblue'}} startIcon={<CloudDownloadIcon />} variant='contained' color='primary'>
+					<Typography variant="h4">Sessions overview</Typography>
+					<Button sx={{backgroundColor: '#393c51'}} startIcon={<CloudDownloadIcon />} variant='contained' color='primary'>
 						Download CSV
 					</Button>
 				</Grid>
