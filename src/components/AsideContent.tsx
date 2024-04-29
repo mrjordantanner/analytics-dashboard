@@ -4,7 +4,7 @@ import Panel from './Panel';
 import RadialStatsCard from './RadialStatsCard';
 import RadarChart from './RadarChart';
 import StatsCard from './StatsCard';
-import HeaderWithMenu from './HeaderWithMenu';
+import MenuPanel from './MenuPanel';
 import DxPolarChart from './DxPolarChart';
 
 interface Props {
@@ -42,7 +42,7 @@ export default function AsideContent({isMobile, selectedTabIndex}: Props) {
 
             <Grid item>
                 <Panel >
-                    <HeaderWithMenu labelText={'Views by browser'}/>
+                    <MenuPanel labelText={'Views by browser'}/>
                     {selectedTabIndex == 0 && <RadarChart />}
                     {selectedTabIndex == 1 && <DxPolarChart />}
                 </Panel>

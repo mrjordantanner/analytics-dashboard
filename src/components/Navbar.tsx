@@ -67,7 +67,7 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
 
                 <Tab label="DATA 1" sx={tabStyle}/>
                 <Tab label="DATA 2" sx={tabStyle}/>
-                <Tab label="DATA 3" sx={tabStyle}/>
+                {/* <Tab label="DATA 3" sx={tabStyle}/> */}
 
             </Tabs> : 
               
@@ -80,7 +80,7 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
 
                 <Tab label="1" sx={tabStyle}/>
                 <Tab label="2" sx={tabStyle}/>
-                <Tab label="3" sx={tabStyle}/>
+                {/* <Tab label="3" sx={tabStyle}/> */}
 
             </Tabs>
           

@@ -1,17 +1,17 @@
 import React from 'react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export default function VerticalMenu() {
-    const [anchorElement, setAnchorElement] = React.useState<EventTarget | null>(null);
+    const [_anchorElement, setAnchorElement] = React.useState<EventTarget | null>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorElement(event.currentTarget);
     };
   
-    const handleClose = () => {
-        setAnchorElement(null);
-    };
+    // const handleClose = () => {
+    //     setAnchorElement(null);
+    // };
 
     return (
         <div>
@@ -23,7 +23,10 @@ export default function VerticalMenu() {
           >
             <MoreVertIcon />
           </IconButton>
-          <Menu
+
+          {/* TODO display different graph type based on menu selection */}
+
+          {/* <Menu
             id="vertical-menu"
             anchorEl={anchorElement as Element}
             keepMounted
@@ -32,7 +35,7 @@ export default function VerticalMenu() {
           >
             <MenuItem onClick={handleClose}>Polar Graph</MenuItem>
             <MenuItem onClick={handleClose}>Bar Graph</MenuItem>
-          </Menu>
+          </Menu> */}
         </div>
       );
 };

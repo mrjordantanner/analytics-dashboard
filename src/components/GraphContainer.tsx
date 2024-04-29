@@ -1,6 +1,7 @@
 import { Grid, Box } from '@mui/material';
 import LineGraph from './LineGraph';
 import DxLineGraph from './DxLineGraph';
+// import DxBarGraph from './DxBarGraph';
 
 interface Props {
     isMobile: boolean;
@@ -50,14 +51,14 @@ export default function GraphContainer({isMobile, selectedTabIndex, graphData}: 
                 <DxLineGraph />
             </Box>
         )}
-        {selectedTabIndex === 2 && (
+        {/* {selectedTabIndex === 2 && (
             <Box sx={{
                 width: '100%',
                 height: '100%',
             }}>
-                <h3>TODO</h3>
+                <DxBarGraph />
             </Box>
-        )}
+        )} */}
     </Grid>
     );
 };

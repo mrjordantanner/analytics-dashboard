@@ -5,9 +5,9 @@ interface Props {
     labelText: string;
 }
 
-export default function HeaderWithMenu({labelText}: Props) {
+export default function MenuPanel({labelText}: Props) {
 
-  const statsPanelHeaderStyle = {
+  const menuPanelHeaderStyle = {
     //backgroundColor: 'lightseagreen',
     //border: '2px solid blue',
     width: '100%',
@@ -17,13 +17,18 @@ export default function HeaderWithMenu({labelText}: Props) {
     justifyContent: 'space-between',
     alignItems: 'center',
   }
+
   return(
         <>
-          <Box sx={statsPanelHeaderStyle}>
+          <Box sx={menuPanelHeaderStyle}>
             <Typography variant="h6" component="div">
               {labelText}
             </Typography>
             <VerticalMenu />
+          </Box>
+
+          <Box>
+            
           </Box>
         </>
 
