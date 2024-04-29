@@ -1,5 +1,5 @@
 
-import { Grid, Box, Card } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import SessionStatsSection from './SessionStatsSection';
 import SessionInsightsSection from './SessionInsightsSection';
 import LineGraph from './LineGraph';

@@ -1,4 +1,4 @@
-import { Grid, Card, CardContent, Typography, CardMedia } from '@mui/material';
+import { Grid } from '@mui/material';
 import SessionStatsCard from './SessionStatsCard';
 
 interface Props{

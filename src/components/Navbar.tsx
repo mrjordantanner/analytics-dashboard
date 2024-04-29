@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Toolbar, Tabs, Tab } from '@mui/material';
 
   interface Props {
@@ -7,12 +7,14 @@ import { Toolbar, Tabs, Tab } from '@mui/material';
     onChange: (index: number) => void;
 }
 
+
+
 export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     onChange(newValue);
-
   };
+
 
     const navBarDesktop = {
         display: 'flex',
@@ -70,19 +72,14 @@ export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
             </Tabs> : 
               
             <Tabs 
-              sx={{ height: '50vh', width: '60px', 
-              flexDirection: 'column', ...tabsContainerStyle }} 
+              sx={{ height: '50vh', width: '60px', flexDirection: 'column', ...tabsContainerStyle }} 
               value={selectedTabIndex} 
               onChange={handleChange} 
               orientation="vertical"
               aria-label="navigation tabs">
-
-                <Tab label="1" sx={tabStyle}/>
-                <Tab label="2" sx={tabStyle}/>
-                <Tab label="3" sx={tabStyle}/>
-                <Tab label="4" sx={tabStyle}/>
-
+              {/* Tabs content */}
             </Tabs>
+          
             }
 
           </Toolbar>
