@@ -1,7 +1,6 @@
-import React from 'react';
-import { Grid, Box, Button } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import LineGraph from './LineGraph';
-import DxLineGraph from './DXLineGraph';
+import DxLineGraph from './DxLineGraph';
 
 interface Props {
     isMobile: boolean;
@@ -33,7 +32,7 @@ export default function GraphContainer({isMobile, selectedTabIndex, graphData}: 
     return (
         <Grid sx={graphContainerStyle}>
 
-        {/* TODO Use cleaner conditional rendering here */}
+        {/* TODO Use cleaner conditional rendering */}
         {selectedTabIndex === 0 && (
             <Box sx={{
                     width: '100%',
@@ -41,35 +40,22 @@ export default function GraphContainer({isMobile, selectedTabIndex, graphData}: 
                 }}>
 
                 <LineGraph graphData={graphData} />
-                {/* <DxLineGraph /> */}
-
             </Box>
         )}
         {selectedTabIndex === 1 && (
             <Box sx={{
-                backgroundColor: 'gray',
                 width: '100%',
                 height: '100%',
             }}>
-                <p>TODO: Content for Tab 2</p>
+                <DxLineGraph />
             </Box>
         )}
         {selectedTabIndex === 2 && (
             <Box sx={{
-                backgroundColor: 'lightgray',
                 width: '100%',
                 height: '100%',
             }}>
-                <p>TODO: Content for Tab 3</p>
-            </Box>
-        )}
-        {selectedTabIndex === 3 && (
-            <Box sx={{
-                backgroundColor: 'darkgray',
-                width: '100%',
-                height: '100%',
-            }}>
-                <p>TODO: Content for Tab 4</p>
+                <h3>TODO</h3>
             </Box>
         )}
     </Grid>

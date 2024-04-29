@@ -3,9 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { Box } from '@mui/material';
 import { GraphDataProps } from '../App';
 
-// This is a Line graph using Chart.js and react-chartjs-2
-
-// TODO consolidate chart/graph components
+// TODO pull data from either an API or TestData.js
 export default function LineGraph({graphData}: GraphDataProps) {
 
 	const options = {

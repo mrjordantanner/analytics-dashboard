@@ -3,7 +3,6 @@ import { Grid, Card, Box, CardContent, Typography } from '@mui/material';
 import RadialProgressBar from './RadialProgressBar';
 
 interface Props{
-  isMobile: boolean;
   title: string;
   value: number;
   maxValue: number;
@@ -11,7 +10,7 @@ interface Props{
   cardContentStyle: React.CSSProperties;
 }
 
-export default function RadialStatsCard({isMobile, title, value, maxValue, cardStyle, cardContentStyle }: Props) {
+export default function RadialStatsCard({title, value, maxValue, cardStyle, cardContentStyle }: Props) {
 
 
   return (

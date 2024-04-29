@@ -4,7 +4,7 @@ import SessionStatsSection from './SessionStatsSection';
 import SessionInsightsSection from './SessionInsightsSection';
 import GraphContainer from './GraphContainer';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-import type { GraphDataProps } from '../App';
+// import type { GraphDataProps } from '../App';
 
 interface Props {
     isMobile: boolean;

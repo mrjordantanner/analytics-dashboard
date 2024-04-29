@@ -1,10 +1,9 @@
 import 'chart.js/auto';
 import { Radar } from 'react-chartjs-2';
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 //import { GraphDataProps } from '../App';
 
-
-// TODO consolidate chart/graph components
+// TODO pull data from either an API or TestData.js
 export default function RadarChart() {
 
 	const testData = {

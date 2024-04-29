@@ -9,9 +9,10 @@ import DxPolarChart from './DxPolarChart';
 
 interface Props {
     isMobile: boolean;
+    selectedTabIndex: number;
 }
 
-export default function AsideContent({isMobile}: Props) {
+export default function AsideContent({isMobile, selectedTabIndex}: Props) {
 
       const asideContainerStyle = {
         //backgroundColor: 'red',
@@ -40,10 +41,10 @@ export default function AsideContent({isMobile}: Props) {
         <Grid item xs={12 } md={3} sx={asideContainerStyle}>
 
             <Grid item>
-                <Panel isMobile={isMobile} >
-                    <HeaderWithMenu isMobile={isMobile} labelText={'Views by browser'}/>
-                    <RadarChart />
-                    {/* <DxPolarChart /> */}
+                <Panel >
+                    <HeaderWithMenu labelText={'Views by browser'}/>
+                    {selectedTabIndex == 0 && <RadarChart />}
+                    {selectedTabIndex == 1 && <DxPolarChart />}
                 </Panel>
             </Grid>
 
@@ -51,12 +52,12 @@ export default function AsideContent({isMobile}: Props) {
                 <Box sx={{display: 'flex', flex: '1', margin: '0px 15px'}}>
                     <Typography variant="h6" component="div">Statistics</Typography>
                 </Box>
-                <Panel isMobile={isMobile}>
+                <Panel >
 
-                    {/* TODO pass in different datasets here when user selects different tabs */}
-                    <RadialStatsCard title={'Online Visitors'} value={312} maxValue={512} isMobile={isMobile} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
+                    {/* TODO pass in different datasets here instead of hardcoding values */}
+                    <RadialStatsCard title={'Online Visitors'} value={312} maxValue={512} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
 
-                    <RadialStatsCard title={'New Visitors'} value={136} maxValue={381} isMobile={isMobile} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
+                    <RadialStatsCard title={'New Visitors'} value={136} maxValue={381} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
 
                     <StatsCard cardStyle={cardStyle} cardContentStyle={cardContentStyle}>
                     <Box sx={{display: 'flex', flex: '1'}}>

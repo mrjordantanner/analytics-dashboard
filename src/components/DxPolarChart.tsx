@@ -1,17 +1,17 @@
-import React from 'react';
 import { PolarChart, Series, CommonSeriesSettings, ArgumentAxis, ValueAxis, Title, Legend } from 'devextreme-react/polar-chart';
 
+// TODO pull data from either an API or TestData.js
 export default function RadarGraph() {
     return (
         <PolarChart
             id="radarGraph"
             dataSource={[
-                { argument: 'Argument 1', value: 20 },
-                { argument: 'Argument 2', value: 30 },
-                { argument: 'Argument 3', value: 50 },
-                { argument: 'Argument 4', value: 25 },
+                { argument: 'Firefox', value: 20 },
+                { argument: 'Safari', value: 30 },
+                { argument: 'Chrome', value: 50 },
+                { argument: 'Explorer', value: 25 },
             ]}
-            title="Circular Radar Graph"
+            title=""
         >
             <CommonSeriesSettings
                 type="line"

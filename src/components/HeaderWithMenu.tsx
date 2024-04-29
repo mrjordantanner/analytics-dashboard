@@ -1,13 +1,11 @@
-import React from 'react';
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import VerticalMenu from './VerticalMenu';
 
 interface Props {
-    isMobile: boolean;
     labelText: string;
 }
 
-export default function HeaderWithMenu({isMobile, labelText}: Props) {
+export default function HeaderWithMenu({labelText}: Props) {
 
   const statsPanelHeaderStyle = {
     //backgroundColor: 'lightseagreen',

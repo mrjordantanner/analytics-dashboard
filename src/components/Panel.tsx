@@ -2,11 +2,10 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 interface Props {
-    isMobile: boolean;
     children: React.ReactNode
 }
 
-export default function Panel({isMobile, children}: Props) {
+export default function Panel({children}: Props) {
 
   const statsPanelStyle = {
     //backgroundColor: 'lightsalmon',

@@ -85,7 +85,7 @@ export default function App() {
           />
 
         <MainContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} graphData={testData} />
-        <AsideContent isMobile={isMobile} />
+        <AsideContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} />
 
     </Grid>
 
