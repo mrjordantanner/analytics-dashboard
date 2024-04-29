@@ -1,4 +1,4 @@
-import AnalyticsMockupOverlay from '../assets/AnalyticsMockupOverlay.png'
+import AnalyticsMockupOverlay from '/assets/AnalyticsMockupOverlay.png'
 
 interface Props{
   isMobile: boolean;

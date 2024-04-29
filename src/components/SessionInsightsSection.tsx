@@ -27,29 +27,29 @@ export default function SessionInsightsSection({isMobile}: Props) {
     <Grid item sx={sessionInsightsSectionStyle}>
 
         <SessionInsightsCard 
-            iconPath={'src/assets/windows.png'}
+            iconPath={'/assets/windows.png'}
             isMobile={isMobile}
             title={'Top Platform'} 
             value={'Windows'} 
             numberSessions={1883} />
 
         <SessionInsightsCard 
-            iconPath={'src/assets/stack_overflow.png'}
+            iconPath={'/assets/stack_overflow.png'}
             isMobile={isMobile}
             title={'Top Sources'} 
             value={'Stack Overflow'}
             numberSessions={420} />
 
         <SessionInsightsCard 
-            iconPath={'src/assets/chrome.png'}
+            iconPath={'/assets/chrome.png'}
           isMobile={isMobile}
             title={'Top Browser'} 
             value={'Chrome'} 
             numberSessions={2010} />
 
         <SessionInsightsCard 
-            iconPath={'src/assets/outlook.png'}
-          isMobile={isMobile}
+            iconPath={'/assets/outlook.png'}
+            isMobile={isMobile}
             title={'Top Email'} 
             value={'Outlook'} 
             numberSessions={326} />
