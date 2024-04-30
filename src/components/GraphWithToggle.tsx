@@ -20,7 +20,7 @@ export default function GraphWithToggle({labelText, data}: Props) {
   
   const menuPanelHeaderStyle = {
     //border: '2px solid blue',
-    width: '100%',
+    width: '95%',
     display: 'flex',
     margin: '0px 15px',
     padding: '0px 15px',

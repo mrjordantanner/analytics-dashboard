@@ -4,6 +4,7 @@ import DxLineGraph from './DxLineGraph';
 import { DashboardData } from '../data/DashboardData.d';
 
 interface Props {
+	isMobile: boolean;
 	title: string;
 	value: number;
 	percentChange: number;
@@ -11,7 +12,7 @@ interface Props {
 	data: DashboardData;
 }
 
-export default function PrimaryStatsCard({title, value, percentChange, cardStyle, data}: Props) {
+export default function PrimaryStatsCard({isMobile, title, value, percentChange, cardStyle, data}: Props) {
 
   return (
 		<Grid item key={title}>
@@ -25,7 +26,7 @@ export default function PrimaryStatsCard({title, value, percentChange, cardStyle
 					</Typography>
 					<PercentChangeLabel percentChange={percentChange} />
 
-					<Box sx={{display: 'flex'}}>
+					<Box sx={{height: '75px', width: isMobile ? '200px' : '30vh', display: 'flex' }}>
 						<DxLineGraph data={data} color={'white'} showGrid={false} showAxes={false}/>
 					</Box>
 				</CardContent>
