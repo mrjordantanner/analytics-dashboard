@@ -1,27 +1,47 @@
-import { Chart, Series, CommonSeriesSettings, ArgumentAxis, ValueAxis, Title, Legend } from 'devextreme-react/chart';
+import {
+	Chart,
+	Series,
+	CommonSeriesSettings,
+	ArgumentAxis,
+	ValueAxis,
+	Title,
+	Legend,
+} from 'devextreme-react/chart';
+import { DashboardData } from '../data/DashboardData.d';
 
-export default function DxBarGraph() {
-    return (
-        <Chart
-            id="barGraph"
-            dataSource={[
-                { argument: 'Firefox', value: 20 },
-                { argument: 'Chrome', value: 30 },
-                { argument: 'Safari', value: 10 },
-                { argument: 'Explorer', value: 25 },
-            ]}
-            title=""
-        >
-            <CommonSeriesSettings
-                type="bar"
-                color="#6b75ca" 
-                width={5}
-            />
-            <Series />
+interface Props {
+	data: DashboardData;
+}
+
+interface ViewsPerBrowserDataPoint {
+	browser: string;
+	views: number;
+}
+
+interface MappedDataPoint {
+	argument: string;
+	value: number;
+}
+
+const mapData = (data: ViewsPerBrowserDataPoint[]): MappedDataPoint[] => {
+	return data.map((point) => ({
+		argument: point.browser,
+		value: point.views,
+	}));
+};
+
+export default function DxBarGraph({ data }: Props) {
+	const mappedData = mapData(data.viewsPerBrowserData);
+
+	return (
+
+        <Chart id='bar-chart' dataSource={mappedData} title=''>
+            <CommonSeriesSettings argumentField='argument' color='#6b75ca' type='bar'/>
+            <Series valueField='value' name='Value'/>
             <ArgumentAxis />
             <ValueAxis />
-            <Title text="" />
+            <Title />
             <Legend visible={false} />
         </Chart>
-    );
-};
+	);
+}

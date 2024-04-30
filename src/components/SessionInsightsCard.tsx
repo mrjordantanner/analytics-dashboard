@@ -11,10 +11,10 @@ interface Props{
 export default function SessionInsightsCard({isMobile, iconPath, title, value, numberSessions }: Props) {
 
 const cardStyle = {
-  backgroundColor: '#eff2f8',
-  borderRadius: '20px',
-  //height: isMobile ? '15vh' :'10vw',
-  width: isMobile ? '40vh' : '100%',
+  backgroundColor: 'white',
+  borderRadius: isMobile ? '0px 0px 20px 20px' : '20px',
+  width: isMobile ? '97vw' : '100%',
+  
 }
 
 const cardContentStyle = {
@@ -27,7 +27,7 @@ const cardContentStyle = {
   return (
         <Grid item xs={12} md={6}>
           <Card sx={cardStyle}>
-            <CardContent sx={cardContentStyle}>
+            <CardContent sx={{fontSize: '1rem', ...cardContentStyle}} >
             <Box sx={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
               <Box sx={{marginRight: '15px'}}>
                   <img src={iconPath} alt='icon' style={{width: '25px'}} />

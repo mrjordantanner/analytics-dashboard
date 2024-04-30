@@ -1,83 +1,114 @@
-
 import { Grid, Box, Typography } from '@mui/material';
 import Panel from './Panel';
 import RadialStatsCard from './RadialStatsCard';
-import RadarChart from './RadarChart';
 import StatsCard from './StatsCard';
-import MenuPanel from './MenuPanel';
-import DxPolarChart from './DxPolarChart';
+import GraphWithToggle from './GraphWithToggle';
+
+import { DashboardData } from '../data/DashboardData.d';
 
 interface Props {
-    isMobile: boolean;
-    selectedTabIndex: number;
+	isMobile: boolean;
+	selectedTabIndex: number;
+	data: DashboardData;
 }
 
-export default function AsideContent({isMobile, selectedTabIndex}: Props) {
+export default function AsideContent({ isMobile, data }: Props) {
+	const asideContainerStyle = {
+		backgroundColor: 'white',
+		display: 'flex',
+		flexDirection: 'column',
+		height: '100%',
+		justfiyContent: 'space-around',
 
-      const asideContainerStyle = {
-        //backgroundColor: 'red',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-      };
+	};
 
-      const cardStyle = { 
-        backgroundColor: '#eff2f8',
-        borderRadius: '20px',
-        width: isMobile ? '90vw' : '20vw', 
-        height: isMobile ? '15vh' :'5vw'
-      }
-      
-      const cardContentStyle = {
-          width: '100%', 
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          maxHeight: '150px'
-      };
+	const cardStyle = {
+		backgroundColor: '#eff2f8',
+		borderRadius: '20px',
+		width: isMobile ? '90vw' : '20vw',
+		height: isMobile ? '15vh' : '5vw',
+	};
 
-    return(
-        <>
-        <Grid item xs={12 } md={3} sx={asideContainerStyle}>
+	const cardContentStyle = {
+		width: '100%',
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		maxHeight: '200px',
+	};
 
-            <Grid item>
-                <Panel >
-                    <MenuPanel labelText={'Views by browser'}/>
-                    {selectedTabIndex == 0 && <RadarChart />}
-                    {selectedTabIndex == 1 && <DxPolarChart />}
-                </Panel>
-            </Grid>
+	return (
+		<>
+			<Grid item xs={12} md={true} sx={asideContainerStyle}>
+				<Grid item>
+					<Panel>
+						<GraphWithToggle data={data} labelText={'Views by browser'} />
+					</Panel>
+				</Grid>
 
-            <Grid item>
-                <Box sx={{display: 'flex', flex: '1', margin: '0px 15px'}}>
-                    <Typography variant="h6" component="div">Statistics</Typography>
-                </Box>
-                <Panel >
+				<Grid item>
+					<Box sx={{ display: 'flex', flex: '1', margin: '0px 15px' }}>
+						<Typography variant='h6' component='div'>
+							Statistics
+						</Typography>
+					</Box>
+					<Panel>
+						<RadialStatsCard
+							title={'Online Visitors'}
+							value={data.onlineVisitors.current}
+							maxValue={data.onlineVisitors.max}
+							cardStyle={cardStyle}
+							cardContentStyle={cardContentStyle}></RadialStatsCard>
 
-                    {/* TODO pass in different datasets here instead of hardcoding values */}
-                    <RadialStatsCard title={'Online Visitors'} value={312} maxValue={512} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
+						<RadialStatsCard
+							title={'New Visitors'}
+							value={data.newVisitors.current}
+							maxValue={data.newVisitors.max}
+							cardStyle={cardStyle}
+							cardContentStyle={cardContentStyle}></RadialStatsCard>
 
-                    <RadialStatsCard title={'New Visitors'} value={136} maxValue={381} cardStyle={cardStyle} cardContentStyle={cardContentStyle}></RadialStatsCard>
+						<StatsCard
+							cardStyle={cardStyle}
+							cardContentStyle={cardContentStyle}>
+							<Box sx={{ display: 'flex', flex: '1' }}>
+								<Typography
+									sx={{ width: '20%' }}
+									variant='h5'
+									color='text.secondary'>
+									Average Revenue
+								</Typography>
+							</Box>
 
-                    <StatsCard cardStyle={cardStyle} cardContentStyle={cardContentStyle}>
-                    <Box sx={{display: 'flex', flex: '1'}}>
-                            <Typography sx={{width: '20%'}} variant="body1" color="text.secondary">Average Revenue</Typography>
-                        </Box>
+							<Box sx={{ display: 'flex', flex: '1', justifyContent:'flex-end' }}>
+								<Typography variant='h4' component='div'>
+									{data.averageRevenue.value}
+								</Typography>
+							</Box>
 
-                        <Box sx={{display: 'flex', flex: '1'}}>
-                            <Typography variant="h6" component="div">3076.25</Typography>
-                        </Box>
-
-                        <Box sx={{display: 'flex', flex: '1', 
-                            flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center'}}>
-                            <Typography variant="h6" component="div" sx={{backgroundColor: '#6b75ca', color: 'white', }}>+21%</Typography>
-                        </Box>
-                    </StatsCard>
-
-                </Panel>
-            </Grid>
-
-        </Grid>
-    </>
-
-)};
+							<Box
+								sx={{
+									display: 'flex',
+									flex: '1',
+									flexDirection: 'column',
+									justifyContent: 'space-evenly',
+									alignItems: 'center',
+								}}>
+								<Typography
+									variant='h6'
+									component='div'
+									sx={{
+										backgroundColor: '#6b75ca',
+										color: 'white',
+										padding: '5px',
+										borderRadius: '5px',
+									}}>
+									{data.averageRevenue.percentChange}%
+								</Typography>
+							</Box>
+						</StatsCard>
+					</Panel>
+				</Grid>
+			</Grid>
+		</>
+	);
+}

@@ -9,7 +9,8 @@ const progressStyle = {
     //backgroundColor: 'cyan',
     color: '#6b75ca',
     minHeight: '50px',
-    minWidth: '50px'
+    minWidth: '50px',
+
 }
 
 export default function CircularProgressBar({ value, maxValue }: Props){

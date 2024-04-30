@@ -6,47 +6,24 @@ import MainContent from './components/MainContent';
 import AsideContent from './components/AsideContent';
 import Navbar from './components/Navbar';
 import MockupOverlay from './components/MockupOverlay';
-//import { testData } from './data/TestData.js';
 
-// import Chart, {
-//   ArgumentAxis,
-//   Series,
-//   Legend
-// } from 'devextreme-react/chart'
+import dataset1 from './data/DashboardData'
+import dataset2 from './data/DashboardData2'
+import dataset3 from './data/DashboardData3'
 
-interface GraphDataProps {
-  graphData: Data;
-}
-interface Data {
-  labels: string[];
-  datasets: DataSet[];
-}
-interface DataSet {
-  label: string;
-  data: number[];
-}
-export type { GraphDataProps };
+import { DashboardData } from './data/DashboardData.d';
 
-const testData = {
-  labels: ['Sun 15', 'Mon 16', 'Tue 17', 'Wed 18', 'Thu 19', 'Fri 20', 'Sat 21', 'Sun 22', 'Mon 23', 'Tue 24', 'Wed Thu 25', 'Fri 26', 'Sat 27', 'Sun 28', 'Mon 29', 'Tue 30'],
-  datasets: [
-      {
-      id: 1,
-      label: 'TestData1',
-      data: [300, 315, 0, 0, 120, 130, 150, 180, 120, 220, 210, 280, 275, 315, 280, 80, 90],
-      },
-  ]
-}
 
 export default function App() {
+  
+  // Dataset state
+  const [currentDataset, setCurrentDataset] = useState<DashboardData>(dataset1); 
 
   // Mobile state
-  const breakpointValue = 900;
+  const breakpointValue = 800;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check for window resize and set 'isMobile' accordingly.  
-    // Empty dependency array means it only runs once on mount.
     const handleResize = () => {
       setIsMobile(window.innerWidth < breakpointValue);
     };
@@ -57,20 +34,34 @@ export default function App() {
     return () => {
       window.removeEventListener('resize', handleResize); 
     };
-  }, []);
+  }, [breakpointValue]);
 
-  // Navbar tabs
+  // Navbar tabs change the current dataset
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-
   const handleTabChange = (index: number) => {
     setSelectedTabIndex(index);
 
+    switch (index) {
+      case 0:
+        setCurrentDataset(dataset1);
+        break;
+      case 1:
+        setCurrentDataset(dataset2);
+        break;
+      case 2:
+          setCurrentDataset(dataset3);
+          break;
+      default:
+        setCurrentDataset(dataset1);
+        break;
+    }
   };
 
   const pageContainerStyle = {
     backgroundColor: '#eff2f8',
-    height: '100vh',
-    marginTop: isMobile ? '60px' : '0px'
+    height: isMobile?  '100%' : '100vh',
+    marginBottom: isMobile ? '160px' : '0px',
+    overflow: 'hidden'
   };
 
 	return (
@@ -84,8 +75,8 @@ export default function App() {
           onChange={handleTabChange}
           />
 
-        <MainContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} graphData={testData} />
-        <AsideContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} />
+        <MainContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} data={currentDataset} />
+        <AsideContent isMobile={isMobile} selectedTabIndex={selectedTabIndex} data={currentDataset} />
 
     </Grid>
 

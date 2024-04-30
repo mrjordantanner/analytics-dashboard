@@ -19,7 +19,7 @@ export default function RadialStatsCard({title, value, maxValue, cardStyle, card
             <CardContent sx={cardContentStyle}>
 
             <Box sx={{display: 'flex'}}>
-              <Typography sx={{width: '20%'}} variant="body1" color="text.secondary"> 
+              <Typography sx={{width: '20%'}} variant="h5" color="text.secondary"> 
                 {title}
               </Typography>
               </Box>
@@ -29,7 +29,7 @@ export default function RadialStatsCard({title, value, maxValue, cardStyle, card
               </Box>
 
               <Box sx={{display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="h6" component="div">MAX {maxValue}</Typography>
+                <Typography variant="body1" component="div">MAX {maxValue}</Typography>
                 <Typography variant="h4" component="div" sx={{color: '#6b75ca'}}>{value}</Typography>
               </Box>
 

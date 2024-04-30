@@ -1,90 +1,76 @@
 import React from 'react';
-import { Toolbar, Tabs, Tab } from '@mui/material';
+import { Toolbar, Tabs, Tab, Button } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
 
   interface Props {
     isMobile: boolean;
     selectedTabIndex: number;
     onChange: (index: number) => void;
 }
-
-
-
 export default function Navbar({isMobile, selectedTabIndex, onChange}: Props) {
   
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     onChange(newValue);
   };
-
-
       const navBarDesktop = {
         backgroundColor: 'white',
+        //border: '1px solid red',
         display: 'flex',
         height: '100%',
         width: '60px',
         left: 0,
         flexDirection: 'column',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
+        padding: '20px 0px',
+        zIndex: 500
       };
     
       const navBarMobile = {
         backgroundColor: 'white',
+        borderTop: '4px solid #6b75ca',
         display: 'absolute',
         position: 'fixed',
-        top: 0,
+        bottom: 0,
         width: '100%',
         height: '60px',
+        zIndex: 500
       };
 
-      const tabsContainerStyle = {
-        //backgroundColor: 'lightgrey',
-        left: 0,
-        justifyContent: 'space-evenly',
-        alignItems: 'center'
+      const tabStyle = {
+        border: '1px solid lightgrey',
+        flex: 1,
+        minWidth: '60px',
+        color: '#6b75ca'
       }
 
-      const tabStyle = {
-        //backgroundColor: 'tomato',
-        border: '1px solid lightgrey',
-        borderRadius: '10px',
-        flex: 1,
-        minWidth: '30px',
-        margin: '5px'
+      const navButtonStyle = {
+        //border: '1px solid blue',
+        maxWidth: '30px',
+        display: 'block',
+        color: '#6b75ca'
       }
 
     return(
         <>
-
           <Toolbar sx={isMobile ? navBarMobile : navBarDesktop}>
 
-            {isMobile ? 
+             <Button sx={navButtonStyle}><HomeIcon /></Button>
 
             <Tabs 
-              sx={{ width: '100vw', ...tabsContainerStyle }} 
-              value={selectedTabIndex} 
-              onChange={handleChange} 
-              orientation="horizontal"
-              aria-label="navigation tabs">
+                sx={{ width: isMobile ? '100vw' : '60px' }} 
+                value={selectedTabIndex} 
+                onChange={handleChange} 
+                orientation={isMobile ? "horizontal" : "vertical"}
+                aria-label="navigation tabs">
 
-                <Tab label="DATA 1" sx={tabStyle}/>
-                <Tab label="DATA 2" sx={tabStyle}/>
-                {/* <Tab label="DATA 3" sx={tabStyle}/> */}
+                  <Tab label="Data 1" sx={tabStyle}/>
+                  <Tab label="Data 2" sx={tabStyle}/>
+                  <Tab label="Data 3" sx={tabStyle}/>
 
-            </Tabs> : 
-              
-            <Tabs 
-              sx={{ height: '50vh', width: '60px', flexDirection: 'column', ...tabsContainerStyle }} 
-              value={selectedTabIndex} 
-              onChange={handleChange} 
-              orientation="vertical"
-              aria-label="navigation tabs">
+              </Tabs> 
 
-                <Tab label="1" sx={tabStyle}/>
-                <Tab label="2" sx={tabStyle}/>
-                {/* <Tab label="3" sx={tabStyle}/> */}
-
-            </Tabs>
-          
-            }
+              <Button sx={navButtonStyle}><LogoutIcon /></Button>
 
           </Toolbar>
     

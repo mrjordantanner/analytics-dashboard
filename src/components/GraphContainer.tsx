@@ -1,64 +1,32 @@
 import { Grid, Box } from '@mui/material';
-import LineGraph from './LineGraph';
 import DxLineGraph from './DxLineGraph';
-// import DxBarGraph from './DxBarGraph';
+import { DashboardData } from '../data/DashboardData.d'
 
 interface Props {
     isMobile: boolean;
     selectedTabIndex: number;
-	graphData: Data
+	data: DashboardData;
 }
 
-// TODO consolidate these Props
-interface Data {
-	labels: string[];
-	datasets: DataSet[];
-  }
-  
-  interface DataSet {
-	label: string;
-	data: number[];
-  }
-
-
-
-export default function GraphContainer({isMobile, selectedTabIndex, graphData}: Props) {
+export default function GraphContainer({ isMobile, data }: Props) {
     
     const graphContainerStyle = {
-        display: 'flex', alignItems: 'center', 
-        width: isMobile ? '45vh' :'60vw',
-        height: isMobile ? '60vw' :'50vh'
+        //border: '1px solid blue',
+        display: 'flex', 
+        alignItems: 'center', 
+        width: isMobile ? '45vh' : '97%',
+        height: isMobile ? '100%' :'50vh',
+        margin: isMobile ? '20px 0px' : '0px 20px'
       }
 
     return (
         <Grid sx={graphContainerStyle}>
-
-        {/* TODO Use cleaner conditional rendering */}
-        {selectedTabIndex === 0 && (
-            <Box sx={{
-                    width: '100%',
-                    height: '100%',
-                }}>
-
-                <LineGraph graphData={graphData} />
-            </Box>
-        )}
-        {selectedTabIndex === 1 && (
             <Box sx={{
                 width: '100%',
                 height: isMobile ? '50vh': '100%',
             }}>
-                <DxLineGraph />
+                <DxLineGraph data={data} color={'#6b75ca'} showGrid={true} showAxes={true}/>
             </Box>
-        )}
-        {/* {selectedTabIndex === 2 && (
-            <Box sx={{
-                width: '100%',
-                height: '100%',
-            }}>
-                <DxBarGraph />
-            </Box>
-        )} */}
-    </Grid>
+        </Grid>
     );
 };

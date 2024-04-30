@@ -1,75 +1,69 @@
-
 import { Grid, Typography, Button } from '@mui/material';
-import SessionStatsSection from './SessionStatsSection';
-import SessionInsightsSection from './SessionInsightsSection';
+import SessionStats from './SessionStats';
+import SessionInsights from './SessionInsights';
 import GraphContainer from './GraphContainer';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-// import type { GraphDataProps } from '../App';
+import { DashboardData } from '../data/DashboardData.d';
 
 interface Props {
     isMobile: boolean;
     selectedTabIndex: number;
-	graphData: Data
+	data: DashboardData;
 }
 
-// TODO consolidate these Props
-interface Data {
-	labels: string[];
-	datasets: DataSet[];
-  }
-  
-  interface DataSet {
-	label: string;
-	data: number[];
-  }
+export default function MainContent({isMobile, selectedTabIndex, data}: Props) {
+	const mainContainerStyle = {
+		//border: '2px solid blue',
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+	};
 
-export default function MainContent({isMobile, selectedTabIndex, graphData}: Props) {
+	const contentContainerStyle = {
+		//border: '2px solid lightgrey',
+		display: 'flex',
+		width: '97%',
+		gap: '10px',
+		justifyContent: 'space-between',
+	};
 
-    const mainContainerStyle = {
-        //backgroundColor: 'lightblue',
-		//border: '1px solid red',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-		//height: '100vh'
-    }
-
-      const contentContainerStyle = {
-        //backgroundColor: 'gray',
-		//border: '1px solid lightgrey',
-        display: 'flex',
-        width: '97%',
-        gap: '10px',
-        justifyContent: 'space-around'
-    }
-     
-    return (
+	return (
 		<>
 			<Grid item xs={12} md={8.25} sx={mainContainerStyle}>
-
-				{/* Top Cards - SESSION STATS */}
-				<Grid
-					sx={{ flex: 1, flexDirection: 'row', ...contentContainerStyle }}>
-					<SessionStatsSection isMobile={isMobile} />
+				<Grid sx={{ flex: 1, flexDirection: 'row', ...contentContainerStyle }}>
+					<SessionStats isMobile={isMobile} data={data} />
 				</Grid>
 
 				{/* Graph Header - TODO Add time range tabs */}
-				<Grid item sx={{ flex: 2, alignItems: 'center', ...contentContainerStyle, }}>
-					<Typography variant="h4">Sessions overview</Typography>
-					<Button sx={{backgroundColor: '#393c51'}} startIcon={<CloudDownloadIcon />} variant='contained' color='primary'>
-						Download CSV
-					</Button>
-				</Grid>
+				{!isMobile && (
+					<Grid
+						item
+						sx={{ flex: 2, alignItems: 'center', padding: '0px 40px', ...contentContainerStyle }}>
+						<Typography variant='h4'>Sessions overview</Typography>
+						<Button
+							sx={{ backgroundColor: '#393c51' }}
+							startIcon={<CloudDownloadIcon />}
+							variant='contained'
+							color='primary'>
+							Download CSV
+						</Button>
+					</Grid>
+				)}
 
-				{/* Middle - Tab Panel toggled by Navbar tabs switches Graph content */}
-				<GraphContainer isMobile={isMobile} selectedTabIndex={selectedTabIndex} graphData={graphData}/>
+				{/* Middle - Graph Panel changed by Navbar tabs */}
+				<GraphContainer
+					isMobile={isMobile}
+					selectedTabIndex={selectedTabIndex}
+					data={data}
+				/>
 
-				{/* Bottom Cards - INSIGHTS STATS */}
+				{/* Bottom Cards - Insights Stats */}
 				<Grid
 					item
 					sx={{ flex: 1, alignItems: 'end', ...contentContainerStyle }}>
-					<SessionInsightsSection isMobile={isMobile} />
+					<SessionInsights isMobile={isMobile} data={data} />
 				</Grid>
 			</Grid>
 		</>
-		);}
+	);
+}

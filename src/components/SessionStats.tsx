@@ -1,16 +1,19 @@
 import { Grid } from '@mui/material';
 import SessionStatsCard from './SessionStatsCard';
+import PrimaryStatsCard from './PrimaryStatsCard';
+import { DashboardData } from '../data/DashboardData.d';
+
 
 interface Props{
   isMobile: boolean;
+  data: DashboardData;
 }
 
-
-export default function SessionStatsSection({isMobile}: Props) {
+export default function SessionStats({isMobile, data}: Props) {
 
   const sessionStatsSectionStyle = {
-    //backgroundColor: 'magenta',
-    display: 'flex',
+    //backgroundColor: 'white',
+    display: isMobile ? 'grid(2)' : 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'start',
     height: '100%',
@@ -20,14 +23,14 @@ export default function SessionStatsSection({isMobile}: Props) {
   const totalSessionsCardStyle = {
     backgroundColor: '#6b75ca', 
     color: 'white',
-    width: '17vw', 
+    width: isMobile ? 'auto' : '17vw', 
     height: '25vh', 
     borderRadius: '0px 0px 20px 20px', 
   }
 
   const sessionStatsCardStyle = {
     backgroundColor: 'white', 
-    width: isMobile ? '100%' : '10vw', 
+    width: isMobile ? 'auto' : '10vw', 
     height: '60%', 
     top: '0px', 
     borderRadius: '0px 0px 20px 20px', 
@@ -36,30 +39,30 @@ export default function SessionStatsSection({isMobile}: Props) {
   return (
     <Grid item sx={sessionStatsSectionStyle}>
 
-        <SessionStatsCard
-        
+        <PrimaryStatsCard
+            data={data}
             cardStyle={totalSessionsCardStyle}
             title={'Total Sessions'} 
-            value={'2100'} 
-            percentChange={14} />
+            value={data.totalSessions.value} 
+            percentChange={data.totalSessions.percentChange} /> 
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Total Visitors'} 
-            value={'1228'} 
-            percentChange={-3} />
+            value={data.totalVisitors.value} 
+            percentChange={data.totalVisitors.percentChange} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Time Spent, Hr'}
-            value={'6.92'} 
-            percentChange={1} />
+            value={data.timeSpent.value} 
+            percentChange={data.timeSpent.value} />
 
         <SessionStatsCard 
             cardStyle={sessionStatsCardStyle}
             title={'Avg requests received'}
-            value={'2.3'} 
-            percentChange={21} />
+            value={data.avgRequestsReceived.value} 
+            percentChange={data.avgRequestsReceived.percentChange} />
 
     </Grid>
   );

@@ -1,25 +1,22 @@
 import { Grid } from '@mui/material';
 import SessionInsightsCard from './SessionInsightsCard';
-
-//import windows from '../assets/windows.png';
-// import chrome from '../assets/chrome.png';
-// import outlook from '../assets/outlook.png';
-// import stackOverflow from '../assets/stack_overflow.png';
+import { DashboardData } from '../data/DashboardData.d';
 
 interface Props {
   isMobile: boolean;
+  data: DashboardData;
 }
 
-export default function SessionInsightsSection({isMobile}: Props) {
+export default function SessionInsights({isMobile, data}: Props) {
 
   const sessionInsightsSectionStyle = {
     //backgroundColor: 'magenta',
-    display: 'flex',
+    //gridTemplateColumns: 'minmax(100px, 1fr) 3fr',
+    display: isMobile ? 'grid(2)' : 'flex',
+    height: isMobile ? '65vh': '20vh',
+    flexDirection: 'row',
     gap: '10px', 
-    alignItems: 'center',
-    flexDirection: isMobile ? 'column' : 'row',
     width: '100%',
-    //height: isMobile ? '50vw': '20vh'
 };
 
 
@@ -31,28 +28,28 @@ export default function SessionInsightsSection({isMobile}: Props) {
             isMobile={isMobile}
             title={'Top Platform'} 
             value={'Windows'} 
-            numberSessions={1883} />
+            numberSessions={data.windowsSessions} />
 
         <SessionInsightsCard 
             iconPath={'/assets/stack_overflow.png'}
             isMobile={isMobile}
             title={'Top Sources'} 
             value={'Stack Overflow'}
-            numberSessions={420} />
+            numberSessions={data.stackOverflowSessions} />
 
         <SessionInsightsCard 
             iconPath={'/assets/chrome.png'}
           isMobile={isMobile}
             title={'Top Browser'} 
             value={'Chrome'} 
-            numberSessions={2010} />
+            numberSessions={data.chromeSessions} />
 
         <SessionInsightsCard 
             iconPath={'/assets/outlook.png'}
             isMobile={isMobile}
             title={'Top Email'} 
             value={'Outlook'} 
-            numberSessions={326} />
+            numberSessions={data.outlookSessions} />
 
     </Grid>
   );
