@@ -5,6 +5,7 @@ UI Developer project demonstrating proficiency in front end development and foll
 
 Built using React, Typescript, Vite, MaterialUI, and DevExpress.
 
-Given design mockup:
-![Design Mockup](src/assets/AnalyticsMockupOverlay.png)
+Given design mockup:   
+<img src="public/assets/AnalyticsMockupOverlay.png" alt="Design Mockup" style="width:50%" />
+
 > (Design by Fire Art Studio)
