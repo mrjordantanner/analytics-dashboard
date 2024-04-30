@@ -5,6 +5,8 @@ UI Developer project demonstrating proficiency in front end development and foll
 
 Built using React, Typescript, Vite, MaterialUI, and DevExpress.
 
+### [Live Deployed App](https://main.doep4ode9s98d.amplifyapp.com/)
+
 Given design mockup:   
 <img src="public/assets/AnalyticsMockupOverlay.png" alt="Design Mockup" style="width:50%" />
 
